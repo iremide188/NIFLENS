@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — NIFLENS</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 
   <!-- Login -->
   <div class="ad-login-wrap" id="ad-login-view">
     <form class="ad-login" id="ad-login-form">
-      <span class="nav-logo">NIFLENS<span>.</span></span>
+      <span class="nav-logo"><img src="assets/brand/niflens-logo.png" alt="NIFLENS"></span>
       <p class="ad-login-sub">Admin dashboard. Sign in with your NIFLENS access token.</p>
       <input type="password" id="ad-token" placeholder="Access token" autocomplete="current-password" required>
       <button class="btn" type="submit" id="ad-login-btn">Sign In</button>
@@ -27,7 +31,7 @@
   <!-- App -->
   <div class="ad-layout" id="ad-app" style="display:none;">
     <aside class="ad-side">
-      <span class="nav-logo">NIFLENS<span>.</span></span>
+      <span class="nav-logo"><img src="assets/brand/niflens-logo.png" alt="NIFLENS"></span>
       <ul class="ad-menu" id="ad-menu">
         <li><button data-view="overview" class="on">Overview</button></li>
         <li><button data-view="galleries">Galleries</button></li>
