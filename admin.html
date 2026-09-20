@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — NIFLENS</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+
+  <!-- Login -->
+  <div class="ad-login-wrap" id="ad-login-view">
+    <form class="ad-login" id="ad-login-form">
+      <span class="nav-logo">NIFLENS<span>.</span></span>
+      <p class="ad-login-sub">Admin dashboard. Sign in with your NIFLENS access token.</p>
+      <input type="password" id="ad-token" placeholder="Access token" autocomplete="current-password" required>
+      <button class="btn" type="submit" id="ad-login-btn">Sign In</button>
+      <p class="form-error" id="ad-login-error" style="display:none;"></p>
+      <p class="ad-hint">Only NIFLENS administrators can access the dashboard. Contact NIFLENS if you need access.</p>
+    </form>
+  </div>
+
+  <!-- App -->
+  <div class="ad-layout" id="ad-app" style="display:none;">
+    <aside class="ad-side">
+      <span class="nav-logo">NIFLENS<span>.</span></span>
+      <ul class="ad-menu" id="ad-menu">
+        <li><button data-view="overview" class="on">Overview</button></li>
+        <li><button data-view="galleries">Galleries</button></li>
+        <li><button data-view="requests">Download Requests</button></li>
+        <li><button data-view="codes">Download Codes</button></li>
+        <li><button data-view="inquiries">Inquiries</button></li>
+      </ul>
+      <button class="btn btn-ghost btn-sm ad-logout" id="ad-logout">Sign Out</button>
+    </aside>
+
+    <main class="ad-main" id="ad-main"></main>
+  </div>
+
+  <!-- Modal -->
+  <div class="ad-modal" id="ad-modal">
+    <div class="ad-modal-panel" id="ad-modal-panel"></div>
+  </div>
+
+  <div class="toast" id="ad-toast"></div>
+
+  <script src="js/admin.js?v=1"></script>
+</body>
+</html>

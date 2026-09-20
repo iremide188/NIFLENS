@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Gallery — NIFLENS</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Your NIFLENS private photo gallery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+
+  <div class="pg-wrap" id="pg-app">
+
+    <nav class="pg-nav">
+      <a href="index.html" class="nav-logo">NIFLENS<span>.</span></a>
+      <span style="font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted-2);">Private Gallery</span>
+    </nav>
+
+    <div id="pg-body">
+      <div class="pg-message" id="pg-status" style="display:none;">
+        <h2 id="pg-status-title">Loading gallery</h2>
+        <p id="pg-status-text">Please wait...</p>
+      </div>
+
+      <div id="pg-main" style="display:none;">
+        <header class="pg-head">
+          <div class="container" style="padding:0;">
+            <p class="kicker">NIFLENS Private Gallery</p>
+            <h1 id="pg-name"></h1>
+            <div class="pg-meta" id="pg-meta"></div>
+            <p id="pg-desc"></p>
+          </div>
+        </header>
+        <div class="pg-grid" id="pg-grid"></div>
+
+        <div class="empty" id="pg-empty" style="display:none;margin:40px 24px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>No photos have been uploaded to this gallery yet.</p>
+        </div>
+      </div>
+
+      <div id="dl-screen" style="display:none;"></div>
+    </div>
+
+    <div class="pg-bar" id="pg-bar">
+      <div class="pg-count">Selected photos: <b id="sel-count">0</b></div>
+      <div class="pg-actions">
+        <button class="btn btn-ghost btn-sm" id="clear-sel">Clear</button>
+        <button class="btn btn-accent" id="request-btn">Request Download</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request + code modal -->
+  <div class="gm-overlay" id="gm-overlay">
+    <div class="gm-panel">
+      <button class="gm-close" id="gm-close" aria-label="Close">&times;</button>
+
+      <div id="gm-step-info">
+        <p class="gm-step-label">Step 1 of 2</p>
+        <h3>Your details</h3>
+        <p class="gm-sub">Tell NIFLENS who is requesting these photos. No account needed.</p>
+        <div class="field">
+          <label for="gm-name">Name</label>
+          <input id="gm-name" type="text" autocomplete="name" placeholder="Your full name">
+        </div>
+        <div class="field">
+          <label for="gm-contact">Phone number or Instagram</label>
+          <input id="gm-contact" type="text" placeholder="080... or @yourhandle">
+        </div>
+        <p class="form-error" id="gm-info-error" style="display:none;"></p>
+        <button class="btn" id="gm-send-request">Send Request</button>
+      </div>
+
+      <div id="gm-step-code" style="display:none;">
+        <p class="gm-step-label">Step 2 of 2</p>
+        <h3>Enter your NIFLENS download code</h3>
+        <p class="gm-sub" id="gm-code-sub">Your request has been sent to NIFLENS. Enter the download code you received to unlock your photos.</p>
+        <div class="field">
+          <input class="gm-code-input" id="gm-code" type="text" placeholder="NF-XXXX-XXXX" maxlength="12" autocomplete="off" spellcheck="false">
+        </div>
+        <p class="form-error" id="gm-code-error" style="display:none;"></p>
+        <button class="btn" id="gm-verify">Verify Code</button>
+        <button class="btn btn-ghost" id="gm-back" style="margin-top:12px;">Back</button>
+      </div>
+
+      <div id="gm-step-busy" style="display:none;text-align:center;padding:30px 0;">
+        <p class="gm-step-label">Please wait</p>
+        <h3 id="gm-busy-text">Checking your code...</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo preview lightbox -->
+  <div class="lightbox" id="pg-lightbox">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <img id="pg-lightbox-img" src="" alt="Photo preview">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="js/gallery.js?v=1"></script>
+</body>
+</html>

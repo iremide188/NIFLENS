@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Work With NIFLENS</title>
+  <meta name="description" content="Book NIFLENS for football photography, matchday coverage, training coverage, player photography and highlight video editing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">NIFLENS<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Work With NIFLENS</a></li>
+      </ul>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <p class="kicker">Contact</p>
+      <h1>Work with NIFLENS</h1>
+      <p>Tell us about your club, your fixture or the player media you need. We reply quickly.</p>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <div class="contact-info-card">
+          <h4>Coverage</h4>
+          <p>Matchday coverage, training sessions, football events and player portraits, on location.</p>
+        </div>
+        <div class="contact-info-card">
+          <h4>Media</h4>
+          <p>Player highlight video editing, social media clips and full private photo galleries with original-quality delivery.</p>
+        </div>
+        <div class="contact-info-card">
+          <h4>Reach us</h4>
+          <p>Email: <a href="mailto:hello@niflens.com">hello@niflens.com</a><br>Instagram: <a href="https://instagram.com/niflens" target="_blank" rel="noopener">@niflens</a></p>
+        </div>
+      </div>
+
+      <form class="reveal" id="contact-form" novalidate>
+        <div class="row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone</label>
+            <input id="cf-phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="field">
+            <label for="cf-ig">Instagram</label>
+            <input id="cf-ig" type="text" placeholder="@yourhandle">
+          </div>
+          <div class="field">
+            <label for="cf-club">Club / Team</label>
+            <input id="cf-club" type="text">
+          </div>
+        </div>
+        <div class="row-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="field">
+            <label for="cf-service">Service Required</label>
+            <select id="cf-service" required>
+              <option value="">Select a service</option>
+              <option>Football Photography</option>
+              <option>Matchday Coverage</option>
+              <option>Training Coverage</option>
+              <option>Player Photography</option>
+              <option>Highlight Video</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-date">Date</label>
+            <input id="cf-date" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-location">Location</label>
+          <input id="cf-location" type="text" placeholder="City / venue">
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" placeholder="Tell us what you need coverage for, timings, and anything else that helps."></textarea>
+        </div>
+        <p class="form-note">Your message goes straight to the NIFLENS team. We usually reply within a day.</p>
+        <button type="submit" class="btn" id="cf-send">Send Message</button>
+        <p class="form-error" id="cf-error" style="display:none;"></p>
+        <p class="form-ok" id="cf-ok" style="display:none;">Thank you. Your message has been sent to NIFLENS.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">NIFLENS<span>.</span></a>
+          <p>Football photography and visual media. Matchdays, training, players and highlights.</p>
+        </div>
+        <div>
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:hello@niflens.com">hello@niflens.com</a></li>
+            <li><a href="https://instagram.com/niflens" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="yr"></span> NIFLENS. All rights reserved.</span>
+        <span>Football Photography &amp; Visual Media</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=1"></script>
+  <script src="js/contact.js?v=1"></script>
+</body>
+</html>
