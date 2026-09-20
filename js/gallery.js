@@ -13,6 +13,13 @@
 
   var $ = function (id) { return document.getElementById(id); };
 
+  // No browser image menus on the gallery: no "Download image", no "Copy image",
+  // no drag-out. Photos are selected with a tap OR a press-and-hold.
+  document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+  document.addEventListener("dragstart", function (e) {
+    if (e.target && e.target.tagName === "IMG") e.preventDefault();
+  });
+
   function lsKey(k) { return "nf_" + k + "_" + slug; }
   function saveState() {
     try {
@@ -67,11 +74,24 @@
       tile.className = "pg-tile";
       tile.setAttribute("aria-label", "Select photo " + (i + 1));
       tile.innerHTML =
-        '<img src="' + p.previewUrl + '" alt="Photo ' + (i + 1) + '" loading="lazy">' +
+        '<img src="' + p.previewUrl + '" alt="Photo ' + (i + 1) + '" loading="lazy" draggable="false">' +
         '<span class="pg-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span>' +
         '<span class="pg-n" id="badge-' + p.id + '" title="View larger">' + String(i + 1).padStart(2, "0") + "</span>";
       tile.addEventListener("click", function (ev) {
+        if (tile._longPressed) { tile._longPressed = false; ev.preventDefault(); return; }
         toggle(p.id, tile);
+      });
+      // press-and-hold also selects (mobile instinct) - fires once at ~400ms
+      var lpTimer = null;
+      tile.addEventListener("touchstart", function (ev) {
+        lpTimer = setTimeout(function () {
+          tile._longPressed = true;
+          toggle(p.id, tile);
+          if (navigator.vibrate) { try { navigator.vibrate(12); } catch (e) {} }
+        }, 400);
+      }, { passive: true });
+      ["touchend", "touchcancel", "touchmove"].forEach(function (evt) {
+        tile.addEventListener(evt, function () { clearTimeout(lpTimer); }, { passive: true });
       });
       // Tap the number badge to preview the photo larger (without selecting it).
       var badge = tile.querySelector(".pg-n");

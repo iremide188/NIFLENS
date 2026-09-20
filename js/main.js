@@ -54,3 +54,14 @@
     items.forEach(function (el) { io.observe(el); });
   }
 })();
+
+/* Photo protection: block the browser's long-press / right-click image menu
+   ("Download image", "Copy image") across the site. Aesthetic choice by NIFLENS:
+   the photos carry the brand watermark and are not for saving from public pages. */
+document.addEventListener("contextmenu", function (e) {
+  var t = e.target;
+  if (t && (t.tagName === "IMG" || t.tagName === "VIDEO" || (t.closest && t.closest("video")))) e.preventDefault();
+});
+document.addEventListener("dragstart", function (e) {
+  if (e.target && e.target.tagName === "IMG") e.preventDefault();
+});

@@ -1274,3 +1274,13 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   .ad-main { padding: 24px 18px 80px; }
   .ad-tiles { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Photo protection: no long-press "Save image / Copy image" callout on any device. */
+img, video {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.pg-tile, .pg-tile * { -webkit-touch-callout: none; }
+#pg-lightbox-img { pointer-events: none; }
