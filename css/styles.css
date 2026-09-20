@@ -233,6 +233,9 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 .nav-links a.nav-cta::after { display: none; }
 .nav-links a.nav-cta:hover { background: var(--text); color: #000; border-color: var(--text); }
 
+/* Mobile menu: logo stays visible above the open overlay, page behind can't scroll */
+.nav-logo { position: relative; z-index: 110; }
+body.nav-open { overflow: hidden; }
 .nav-burger {
   display: none;
   background: none;
@@ -268,6 +271,15 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
   }
   .nav-open .nav-links { opacity: 1; pointer-events: auto; }
   .nav-links a { font-size: 0.9rem; }
+  .nav-links li { opacity: 0; transform: translateY(18px); }
+  .nav-open .nav-links li {
+    opacity: 1; transform: none;
+    transition: opacity 0.45s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .nav-open .nav-links li:nth-child(1) { transition-delay: 0.05s; }
+  .nav-open .nav-links li:nth-child(2) { transition-delay: 0.12s; }
+  .nav-open .nav-links li:nth-child(3) { transition-delay: 0.19s; }
+  .nav-open .nav-links li:nth-child(4) { transition-delay: 0.26s; }
 }
 
 /* ---------- Hero ---------- */
