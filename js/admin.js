@@ -70,7 +70,12 @@
       },
       body: JSON.stringify({ message: message, content: contentB64 })
     }).then(function (r) {
-      if (!r.ok) throw new Error("GitHub upload failed (" + r.status + ")");
+      if (!r.ok) {
+        var hint = "GitHub upload failed (" + r.status + ")";
+        if (r.status === 403 || r.status === 404) hint = "Your token can't write to this repo (status " + r.status + "). Open github.com \u2192 Settings \u2192 Developer settings \u2192 Fine-grained tokens, edit your token, add the NIFLENS repo with Contents: Read and write, then sign in here again.";
+        else if (r.status === 401) hint = "Token expired or invalid. Create a new token and sign in again.";
+        throw new Error(hint);
+      }
       return r.json();
     });
   }
