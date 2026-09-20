@@ -44,7 +44,10 @@
       if (!match(it)) return;
       shown++;
       var el = document.createElement(it.type === "video" ? "a" : "div");
-      el.className = "work-item" + (shown === 1 ? " wide" : "");
+      var cls = "work-item";
+      if (shown === 1) cls += " lead";
+      else if (shown % 7 === 5) cls += " wide";
+      el.className = cls;
       if (it.type === "video") {
         el.href = it.video || "#";
         el.target = "_blank";

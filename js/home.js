@@ -10,7 +10,7 @@
       picks.forEach(function (it, i) {
         var a = document.createElement("a");
         a.href = "portfolio.html";
-        a.className = "work-item" + (i === 0 ? " wide" : "");
+        a.className = "work-item" + (i === 0 ? " lead" : (i === 3 ? " wide" : ""));
         a.innerHTML =
           '<img src="' + it.image + '" alt="' + (it.title || "NIFLENS football photography") + '" loading="lazy">' +
           '<div class="wi-caption"><div class="wi-cat">' + (it.category || "") + '</div><div class="wi-title">' + (it.title || "") + "</div></div>";
