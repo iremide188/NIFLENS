@@ -545,6 +545,7 @@ input, select, textarea { font-family: inherit; font-size: 1rem; }
 @media (max-width: 560px) {
   .work-grid { grid-auto-rows: 118px; gap: 8px; }
   .section { padding: 80px 0; }
+  .hero-title { font-size: 16.5vw; line-height: 0.84; }
 }
 
 /* ---------- Split (about) ---------- */
